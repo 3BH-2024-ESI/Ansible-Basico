@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+
+    - name: Instalar paquetes del sistema
+      yum: 
+        name: 
+          - vim
+          - git
+          - php   
+        state: present
+
+    - name: Crear usuario administrador
+      user:
+        name: usuario.administrador
+        comment: Usuario administrador
+        group: wheel
+        password: $6$qjw11UE4$zbBvYhOOaJXqM.DAhTkCW4m6JctCK6zoEJH7K.2zqeRFIxhBPZW1VjtF9xPfOMrPwrZZ1W7MzCd0Nv2fXzxVT. 
+

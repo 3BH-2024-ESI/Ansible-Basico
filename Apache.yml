@@ -1,0 +1,15 @@
+---
+- hosts: apache
+  become: yes
+  tasks:
+
+    - name: Instalar paquete apache
+      yum: 
+        name: httpd
+        state: present
+
+    - name: Iniciar apache 
+      systemd:
+        name: httpd
+        state: started
+        enabled: yes
